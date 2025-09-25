@@ -1,0 +1,58 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    \\step 1
+    float espressoPrice = 2.5, lattePrice = 3.5, cappuccinoPrice = 3.0;
+    float *pEspressoPrice = &espressoPrice;
+    float *pLattePrice = &lattePrice;
+    float *pCappuccinoPrice = &cappuccinoPrice;
+
+   
+    int espressoQty = 0, latteQty = 0, cappuccinoQty = 0;
+    int *pEspressoQty = &espressoQty;
+    int *pLatteQty = &latteQty;
+    int *pCappuccinoQty = &cappuccinoQty;
+
+    
+    float espressoCost = 0.0, latteCost = 0.0, cappuccinoCost = 0.0;
+    float *pEspressoCost = &espressoCost;
+    float *pLatteCost = &latteCost;
+    float *pCappuccinoCost = &cappuccinoCost;
+
+    \\step2
+    float totalBill = 0.0;
+    float *pTotalBill = &totalBill;
+
+   
+    cout << "Enter quantity for Espresso: ";
+    cin >> *pEspressoQty;
+
+    cout << "Enter quantity for Latte: ";
+    cin >> *pLatteQty;
+
+    cout << "Enter quantity for Cappuccino: ";
+    cin >> *pCappuccinoQty;
+
+   
+    *pEspressoCost = (*pEspressoQty) * (*pEspressoPrice);
+    *pLatteCost = (*pLatteQty) * (*pLattePrice);
+    *pCappuccinoCost = (*pCappuccinoQty) * (*pCappuccinoPrice);
+
+   
+    *pTotalBill = *pEspressoCost + *pLatteCost + *pCappuccinoCost;
+
+   \\step 3
+    cout << fixed << setprecision(2);
+    cout << "\n----- Pointer Café Bill -----\n";
+    cout << "Item        Qty   Price   Subtotal\n";
+    cout << "-----------------------------------\n";
+    cout << "Espresso    " << *pEspressoQty << "     $" << *pEspressoPrice << "   $" << *pEspressoCost << "\n";
+    cout << "Latte       " << *pLatteQty << "     $" << *pLattePrice << "   $" << *pLatteCost << "\n";
+    cout << "Cappuccino  " << *pCappuccinoQty << "     $" << *pCappuccinoPrice << "   $" << *pCappuccinoCost << "\n";
+    cout << "-----------------------------------\n";
+    cout << "Total Bill: $" << *pTotalBill << "\n";
+
+    return 0;
+}
